@@ -21,18 +21,23 @@ const CreateList = () => {
           const j = Math.floor(Math.random() * (i + 1));
           [shuffledList[i], shuffledList[j]] = [shuffledList[j], shuffledList[i]];
         }
-        setRandomList(shuffledList.slice(0, 10));
+        setRandomList(shuffledList.slice(0, 12));
       }
+
+    const handleButtonClick = () => {
+        getRandom(categories)
+      };
+    
       
       return (
         <div>
-            <h2>Item List</h2>
-            <ul>
+            <h2>Categories</h2>
+            <ol>
                 {randomList.map(item => (
                 <li key={item.id}>{item.category}</li>
-                // Adjust 'item.id' and 'item.name' based on your API response structure
                 ))}
-            </ul>
+            </ol>
+            <button onClick={handleButtonClick}>Generate List</button>
         </div>
       );
 
